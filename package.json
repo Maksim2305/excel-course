@@ -46,6 +46,8 @@
     "babel-eslint": "^10.1.0",
     "D": "^1.0.0",
     "eslint": "^7.32.0",
-    "eslint-loader": "^4.0.2"
+    "eslint-loader": "^4.0.2",
+    "normalize.css": "^8.0.1",
+    "@babel/polyfill": "^7.10.1"
   }
 }
