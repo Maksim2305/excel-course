@@ -12,6 +12,10 @@
         "linebreak-style":"off",
         "require-jsdoc":"off",
         "eol-last":"off",
-        "comma-dangle":"off"
+        "comma-dangle":"off",
+        "object-curly-spacing": "off",
+        "operator-linebreak": "off",
+        "no-debugger":"off",
+        "indent":"off"
     }
 }
