@@ -16,6 +16,9 @@
         "object-curly-spacing": "off",
         "operator-linebreak": "off",
         "no-debugger":"off",
-        "indent":"off"
+        "indent":"off",
+        "max-len":"off",
+        "prefer-const":"off",
+        "no-unused-vars":"off"
     }
 }
