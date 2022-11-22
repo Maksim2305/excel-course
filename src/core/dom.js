@@ -8,6 +8,7 @@ class Dom {
 
   html(html) {
     if (typeof html === "string") {
+      // заполняем страницу элементами
       this.$el.innerHTML = html;
       return this;
     }
@@ -36,6 +37,30 @@ class Dom {
   off(eventName, fn) {
     this.$el.removeEventListener(eventName, fn);
   }
+  closest(selector) {
+    // ближайший родитель элемента
+    return $(this.$el.closest(selector));
+  }
+  getCoords() {
+    // опеределяем координаты элемента
+    return this.$el.getBoundingClientRect(); //
+  }
+
+  get data() {
+    // находим одинаковые атрибуты в колонке и ячейках
+    return this.$el.dataset;
+  }
+
+  findAll(selector) {
+    // определяем массив по атрибуту выше
+    return this.$el.querySelectorAll(selector);
+  }
+
+  css(styles = {}) {
+    Object.keys(styles).forEach((key) => {
+      this.$el.style[key] = styles[key];
+    });
+  }
 }
 
 export function $(selector) {
@@ -43,6 +68,7 @@ export function $(selector) {
 }
 
 $.create = (tagName, classes = "") => {
+  // создаем переменную, чтобы она была инстасом класса ДОМ
   const el = document.createElement(tagName);
   if (classes) {
     el.classList.add(classes);
