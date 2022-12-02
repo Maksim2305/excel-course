@@ -27,8 +27,8 @@ function toColunm(cols, index) {
   </div>`;
 }
 
-function createCell(it, index) {
-  return `<div class="cell" contenteditable data-col="${index}"></div>`;
+function createCell(row, col) {
+  return `<div class="cell" contenteditable data-col="${col}" data-id="${row}:${col}"></div>`;
 }
 
 function toChar(_, index) {
@@ -43,12 +43,12 @@ export function createTable(countRows = 20) {
   const cols = new Array(countCols).fill("").map(toChar).map(toColunm).join("");
   rows.push(createRow("", cols));
   // создаем ячейки
-  for (let i = 0; i < countRows; i++) {
+  for (let row = 0; row < countRows; row++) {
     const cell = new Array(countCols)
       .fill("")
-      .map((it, index) => createCell(it, index))
+      .map((_, col) => createCell(row, col))
       .join("");
-    rows.push(createRow(i + 1, cell));
+    rows.push(createRow(row + 1, cell));
   }
   // приводим все к строке
   return rows.join("");
