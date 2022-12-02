@@ -31,7 +31,7 @@ export class Formula extends ExcelComponent {
     this.$emit("formula:input", text);
   }
   onKeydown(event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.key === "Tab" ) {
       event.preventDefault();
       this.$emit("formula:keydown");
     }
