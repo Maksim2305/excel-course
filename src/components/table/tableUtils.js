@@ -1,6 +1,8 @@
 import { $ } from "../../core/dom";
 import { range } from "../../core/utils";
+
 export function resizeHandler(root, event) {
+  return new Promise((resolve)=>{
   const $target = $(event.target);
   const $parent = $target.closest("[data-type=resizable]");
   const type = event.target.dataset.resize;
@@ -47,7 +49,13 @@ export function resizeHandler(root, event) {
         opacity: 0,
       });
     }
+    resolve({
+      value,
+      type,
+      id: type === 'col' ? $parent.data.col : $parent.data.row,
+    })
   };
+  })
 }
 
 export function matrix(current, target) {
@@ -59,25 +67,25 @@ export function matrix(current, target) {
   }, []);
 }
 
-
 export function nextCell(key, { row, col }) {
   const MIN_VALUE = 0;
   switch (key) {
     case "Tab":
     case "ArrowRight":
-      col++
+      col++;
       break;
     case "Enter":
     case "ArrowDown":
-      row++
+      row++;
       break;
     case "ArrowUp":
-      row === MIN_VALUE ? MIN_VALUE : row--
+      row === MIN_VALUE ? MIN_VALUE : row--;
       break;
     case "ArrowLeft":
-      col === MIN_VALUE ? MIN_VALUE : col--
+      col === MIN_VALUE ? MIN_VALUE : col--;
       break;
   }
-  return {row, col}
+  return { row, col };
 }
+
 

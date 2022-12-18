@@ -20,9 +20,12 @@ export class TableSelection {
 
   selectedGroup($group = []) {
     this.clear();
-    this.group = $group
+    this.group = $group;
     this.group.forEach(($el) => {
       $el.addClass("selected");
     });
+  }
+  applyStyle(style) {
+    this.group.forEach(($el) => $el.css(style));
   }
 }
