@@ -46,7 +46,6 @@ export class Table extends ExcelComponent {
     this.$on("formula:keydown", () => {
       this.selection.current.focus();
     });
-    this.updateTextInStore($cell.text());
     this.$on("toolbar:applyStyle", (style) => {
       this.selection.applyStyle(style);
       this.$disptch(
