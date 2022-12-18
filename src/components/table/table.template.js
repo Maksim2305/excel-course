@@ -44,15 +44,16 @@ function toColunm(cols, index, width) {
 function createCell(row, col, state) {
   const id = `${row}:${col}`
   const width = `${getWidth(state.colState, col)}`
+  const data = state.dataState[id]
   const styles = toInlineStyle({
     ...defaultStyles,
     ...state.stylesState[id]
   })
   return `<div class="cell" contenteditable data-col="${col}"
   data-id="${id}"
-  data-value="${state.dataState[id] || ""}"
+  data-value="${data || ""}"
   style=${styles};width:${width}>
-    ${parseStr(state.dataState[id])|| ""}
+    ${parseStr(data)|| ""}
   </div>`;
 }
 

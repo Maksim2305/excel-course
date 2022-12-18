@@ -37,6 +37,7 @@ export class Table extends ExcelComponent {
     super.init();
     const $cell = this.$root.find(`[data-id="0:0"]`);
     this.selection.select($cell);
+    this.$emit("table:select", $cell);
     this.$on("formula:input", (value) => {
       this.selection.current.attr("data-value", value);
       this.selection.current.text(parseStr(value));
@@ -70,8 +71,8 @@ export class Table extends ExcelComponent {
       this.resizeCols(event);
     } else if (event.target.dataset.id) {
       const $target = $(event.target);
-      console.log("MouseDown", $target.data.value)
-      this.$emit("table:select", $target);
+      // console.log("MouseDown", $target.data.value)
+      // this.$emit("table:select", $target);
       if (event.shiftKey) {
         let current = this.selection.current.id(true);
         let target = $target.id(true);
@@ -82,7 +83,7 @@ export class Table extends ExcelComponent {
       } else {
         this.selection.select($target);
       }
-      this.updateTextInStore($target.text());
+      this.updateTextInStore($target.data.value);
       let styles = $target.getStyles(Object.keys(defaultStyles));
       this.$disptch(actions.changeStyles(styles));
     }

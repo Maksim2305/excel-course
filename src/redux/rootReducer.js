@@ -29,7 +29,6 @@ export function rootReducer(state, action) {
         currentStyles: { ...state.currentStyles, ...action.data.value },
       };
     case CHANGE_TITLE:
-      console.log(action)
       return { ...state, currentTitle: action.data };
     default:
       return state;
