@@ -13,13 +13,16 @@ export class StoreSubscriber {
           components.forEach((component) => {
             if (component.subscribe.includes(key)) {
               const changes = { [key]: state[key] };
-              component.storeChanged(changes)
+              component.storeChanged(changes);
             }
           });
         }
       });
       this.prevState = this.store.getState();
     });
+    if (process.env.NODE_ENV === "development") {
+      window["redux"] = this.prevState;
+    }
   }
   unsunscribeFromStote() {
     this.sub.unsubscribe();

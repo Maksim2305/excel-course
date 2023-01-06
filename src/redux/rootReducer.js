@@ -1,5 +1,12 @@
 import { toInlineStyle } from "../core/utils";
-import { CHANGE_STYLE, TABLE_RESIZE, CHANGE_TEXT, APPLY_STYLE, CHANGE_TITLE } from "./types";
+import {
+  CHANGE_STYLE,
+  TABLE_RESIZE,
+  CHANGE_TEXT,
+  APPLY_STYLE,
+  CHANGE_TITLE,
+  UPDATE_DATE,
+} from "./types";
 
 export function rootReducer(state, action) {
   let field;
@@ -30,6 +37,8 @@ export function rootReducer(state, action) {
       };
     case CHANGE_TITLE:
       return { ...state, currentTitle: action.data };
+    case UPDATE_DATE:
+      return { ...state, createDate: new Date().toJSON() };
     default:
       return state;
   }

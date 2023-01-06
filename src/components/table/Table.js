@@ -31,6 +31,9 @@ export class Table extends ExcelComponent {
     );
   }
   onInput(event) {
+    if ($(event.target).text()) {
+      $(event.target).data.value = "";
+    }
     this.updateTextInStore($(event.target).text());
   }
   init() {
@@ -82,7 +85,8 @@ export class Table extends ExcelComponent {
       } else {
         this.selection.select($target);
       }
-      this.updateTextInStore($target.data.value);
+
+      this.updateTextInStore($target.data.value || $target.text()); // <<<<< ПОПРАВИТЬ БАГ
       let styles = $target.getStyles(Object.keys(defaultStyles));
       this.$disptch(actions.changeStyles(styles));
     }
