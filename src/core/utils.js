@@ -43,9 +43,17 @@ export function debounce(fn, wait) {
     const later = () => {
       clearTimeout(timeout);
       // eslint-disable-next-line
-      fn.apply(this, args)
+      fn.apply(this, args);
     };
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
+}
+
+export function copy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+export function preventDefault(event) {
+  event.preventDefault();
 }
