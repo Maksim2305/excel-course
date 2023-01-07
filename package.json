@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=production webpack --mode production"
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint-config-google": "^0.14.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.55.0",
@@ -43,11 +45,11 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@babel/polyfill": "^7.10.1",
     "babel-eslint": "^10.1.0",
     "D": "^1.0.0",
     "eslint": "^7.32.0",
     "eslint-loader": "^4.0.2",
-    "normalize.css": "^8.0.1",
-    "@babel/polyfill": "^7.10.1"
+    "normalize.css": "^8.0.1"
   }
 }
