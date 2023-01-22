@@ -1,3 +1,3 @@
-Download code
-npm install
-npm run start
+1. Download code
+2 .npm install
+3. npm run start
