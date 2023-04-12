@@ -1,5 +1,3 @@
-1. Download code
-2. npm install
-3. npm run start
+# Excel on JavaScript
 
-### [visit site](https://maksim2305.github.io/test-excel)
+### [link](https://maksim2305.github.io/test-excel)
